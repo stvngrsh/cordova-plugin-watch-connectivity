@@ -9,7 +9,7 @@ Watch.initialize = function(successCallback, errorCallback) {
 };
 
 Watch.sendMessage = function(message, successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "Watch", "passMessage", [message]);
+    exec(successCallback, errorCallback, "Watch", "sendMessage", [message]);
 };
 
 Watch.listen = function(successCallback, errorCallback) {

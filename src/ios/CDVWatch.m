@@ -23,9 +23,9 @@
     }];
 }
 
--(void) passMessage:(CDVInvokedUrlCommand*)command 
+-(void) sendMessage:(CDVInvokedUrlCommand*)command 
 {
-	NSString *message = "TEST MESSAGE";
+	NSString *message = @"TEST MESSAGE";
 	NSDictionary *payload = [[NSDictionary alloc] initWithObjects:@[message] forKeys:@[@"message"]];
 
 	[[WCSession defaultSession] sendMessage:payload
