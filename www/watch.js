@@ -4,9 +4,16 @@ var Watch = function() {
 
 };
 
-Watch.test = function(param1, param2) {
-	console.log("In cordova plugin JS");
-	exec(successCallback, errorCallback, "Watch", "test", [param1, param2]);
+Watch.initialize = function(groupIdentifier, directory, successCallback, errorCallback) {
+    exec(successCallback, errorCallback, "Watch", "initialize", []);
+};
+
+Watch.sendMessage = function(message, successCallback, errorCallback) {
+    exec(successCallback, errorCallback, "Watch", "passMessage", [message]);
+};
+
+Watch.listen = function(successCallback, errorCallback) {
+    exec(successCallback, errorCallback, "Watch", "listenForMessage", []);
 };
 
 module.exports = Watch;

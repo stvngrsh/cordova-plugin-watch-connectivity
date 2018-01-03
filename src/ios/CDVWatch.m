@@ -2,14 +2,28 @@
 
 @implementation CDVWatch
 
--(void) test:(CDVInvokedUrlCommand*)command
+-(void) initialize:(CDVInvokedUrlCommand*)command
 {
-    NSArray* arguments = [command arguments];
-    NSString* test1 = [arguments objectAtIndex:0];
-    NSString* test2 = @"THE PLUGIN WORKS";
+  	if ([WCSession isSupported]) {
+        WCSession *session = [WCSession defaultSession];
+        session.delegate = self;
+        [session activateSession];
+        NSLog(@"%@", "WCSession initialized.")
+    }
 
-    NSLog(@"%@",test1);
-    NSLog(@"%@",test2);
+  	else {
+  		NSLog(@"%@", "WCSession failed to initialize. WCSession is not supported on this device.")
+  	}
+}
+
+-(void) passMessage:(CDVInvokedUrlCommand*)command 
+{
+
+}
+
+-(void) listenForMessage:(CDVInvokedUrlCommand*)command 
+{
+   
 }
 
 @end
