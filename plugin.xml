@@ -1,7 +1,27 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="cordova-plugin-watch-connectivity" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>cordova-plugin-watch-connectivity</name>
-    <js-module name="cordova-plugin-watch-connectivity" src="www/cordova-plugin-watch-connectivity.js">
-        <clobbers target="cordova.plugins.cordova-plugin-watch-connectivity" />
-    </js-module>
+    <name>Watch Connectivity</name>
+    <description>Cordova WatchKit Connectivity Framework Plugin</description>
+    <license>MIT</license>
+    <keywords>cordova,watch,apple</keywords>
+    <repo>https://github.com/stvngrsh/cordova-plugin-watch-connectivity.git</repo>
+    <engines>
+    	<engine name="cordova" version=">=6.0.0" />
+    </engines>
+
+    <!-- ios -->
+    <platform name="ios">
+    	<config-file target="config.xml" parent="/*">
+    		<feature name="Watch">
+    			<param name="ios-package" value="CDVWatch"/>
+    		</feature>
+    	</config-file>
+
+    	<js-module src="www/watch.js" name="watch">
+    		<clobbers target="Watch" />
+    	</js-module>
+
+    	<source-file src="src/ios/CDVWatch.h" />
+    	<source-file src="src/ios/CDVWatch.m" />
+    </platform>
 </plugin>
