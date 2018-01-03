@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="cordova-plugin-watch-connectivity" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>Watch Connectivity</name>
+    <name>Watch</name>
     <description>Cordova WatchKit Connectivity Framework Plugin</description>
     <license>MIT</license>
     <keywords>cordova,watch,apple</keywords>
