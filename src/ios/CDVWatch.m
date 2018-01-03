@@ -25,7 +25,17 @@
 
 -(void) passMessage:(CDVInvokedUrlCommand*)command 
 {
+	NSString *message = "TEST MESSAGE";
+	NSDictionary *payload = [[NSDictionary alloc] initWithObjects:@[message] forKeys:@[@"message"]];
 
+	[[WCSession defaultSession] sendMessage:payload
+        replyHandler:^(NSDictionary *reply) {
+        	//handle reply from iPhone app here
+        }
+        errorHandler:^(NSError *error) {
+        	//catch any errors here
+        }
+    ];
 }
 
 -(void) listenForMessage:(CDVInvokedUrlCommand*)command 
