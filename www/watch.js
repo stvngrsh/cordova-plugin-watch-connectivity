@@ -4,7 +4,7 @@ var Watch = function() {
 
 };
 
-Watch.initialize = function(groupIdentifier, directory, successCallback, errorCallback) {
+Watch.initialize = function(successCallback, errorCallback) {
     exec(successCallback, errorCallback, "Watch", "initialize", []);
 };
 

@@ -5,19 +5,16 @@
 -(void) initialize:(CDVInvokedUrlCommand*)command
 {
     [self.commandDelegate runInBackground:^{
-        NSLog(@"%s", "In objc");
         CDVPluginResult* pluginResult = nil;
 
         if ([WCSession isSupported]) {
             WCSession *session = [WCSession defaultSession];
             session.delegate = self;
             [session activateSession];
-            NSLog(@"%s", "WCSession initialized.");
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         }
         
         else {
-            NSLog(@"%s", "WCSession failed to initialize. WCSession is not supported on this device.");
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"WCSession not supported"];
 
         }
