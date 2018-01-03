@@ -6,7 +6,7 @@
 {
     [self.commandDelegate runInBackground:^{
         CDVPluginResult* pluginResult = nil;
-
+        
         if ([WCSession isSupported]) {
             WCSession *session = [WCSession defaultSession];
             session.delegate = self;
@@ -16,31 +16,27 @@
         
         else {
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"WCSession not supported"];
-
+            
         }
         
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
 }
 
--(void) sendMessage:(CDVInvokedUrlCommand*)command 
+-(void) sendMessage:(CDVInvokedUrlCommand*)command
 {
-	NSString *message = @"TEST MESSAGE";
-	NSDictionary *payload = [[NSDictionary alloc] initWithObjects:@[message] forKeys:@[@"message"]];
-
-	[[WCSession defaultSession] sendMessage:payload
-        replyHandler:^(NSDictionary *reply) {
-        	//handle reply from iPhone app here
-        }
-        errorHandler:^(NSError *error) {
-        	//catch any errors here
-        }
-    ];
+    NSDictionary *payload = @{@"message":@"Test Message From Rider App"};
+    NSLog(@"%s", payload[@"message"]);
+    [[WCSession defaultSession] sendMessage:payload
+                               replyHandler:nil
+                               errorHandler:nil
+     ];
 }
 
--(void) listenForMessage:(CDVInvokedUrlCommand*)command 
+-(void) listenForMessage:(CDVInvokedUrlCommand*)command
 {
-   
+    
 }
 
 @end
+
