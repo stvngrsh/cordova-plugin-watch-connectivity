@@ -1,0 +1,11 @@
+{
+  "name": "cordova-plugin-watch-connectivity",
+  "version": "0.0.1",
+  "description": "Allows communication to Apple Watch devices through the WatchOS 2+ Watch Connectivity Framework",
+  "main": "watch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steven Gresh",
+  "license": "ISC"
+}
