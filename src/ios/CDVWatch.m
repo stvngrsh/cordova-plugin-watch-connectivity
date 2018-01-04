@@ -2,6 +2,7 @@
 
 @implementation CDVWatch
 
+
 -(void) initialize:(CDVInvokedUrlCommand*)command
 {
     [self.commandDelegate runInBackground:^{
@@ -25,17 +26,45 @@
 
 -(void) sendMessage:(CDVInvokedUrlCommand*)command
 {
+	NSArray* args = [command arguments];
+	NSString* message = [args objectAtIndex:0];
+
     NSDictionary *payload = @{@"message":@"Test Message From Rider App"};
     NSLog(@"%s", payload[@"message"]);
+
     [[WCSession defaultSession] sendMessage:payload
                                replyHandler:nil
                                errorHandler:nil
      ];
 }
 
+-(void) sendObject:(CDVInvokedUrlCommand*)command
+{
+	NSArray* args = [command arguments];
+	NSString* jsonString = [args objectAtIndex:0];
+
+	NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonString options:0 error:NULL];
+	NSLog(@"%s", json[@"test"]);
+
+}
+
+-(void)updateAppContext:(CDVInvokedUrlCommand*)command
+{
+	NSArray* args = [command arguments];
+	NSString* jsonString = [args objectAtIndex:0];
+
+	NSDictionary *json = [NSJSONSerialization JSONObjectWithData:jsonString options:0 error:NULL];
+	[[WCSession defaultSession] updateApplicationContext:json error:nil]
+}
+
+
 -(void) listenForMessage:(CDVInvokedUrlCommand*)command
 {
     
+}
+
+-(void)checkAppContext:(CDVInvokedUrlCommand*)command{
+
 }
 
 @end
