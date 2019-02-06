@@ -1,12 +1,15 @@
 {
   "name": "cordova-plugin-watch-connectivity",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Allows communication to Apple Watch devices through the WatchOS 2+ Watch Connectivity Framework",
   "author": "Steven Gresh",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stvngrsh/cordova-plugin-watch-connectivity"
+  },
+  "bugs": {
+    "url": "https://github.com/stvngrsh/cordova-plugin-watch-connectivity/issues"
   },
   "keywords": [
     "watch",
@@ -17,7 +20,11 @@
   "engines": [
     {
       "name": "cordova",
-      "version": ">=6.0"  
+      "version": ">=6.0"
+    },
+    {
+      "name": "apple-ios",
+      "version": ">=9.0.0"
     }
   ],
   "cordova": {
@@ -25,5 +32,12 @@
     "platforms": [
       "ios"
     ]
-  }
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "www",
+    "src",
+    "plugin.xml"
+  ]
 }
